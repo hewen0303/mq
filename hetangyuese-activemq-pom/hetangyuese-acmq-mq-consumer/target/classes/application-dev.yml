@@ -1,0 +1,9 @@
+server:
+  port: 8082
+spring:
+  activemq:
+    broker-url: failover:(tcp://127.0.0.1:61616?wireFormat.maxInactivityDuration=0)
+    in-memory: true
+  jms:
+    pub-sub-domain: true
+

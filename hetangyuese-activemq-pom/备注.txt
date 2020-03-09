@@ -1,0 +1,29 @@
+++ activeMq的使用步骤：
+1. 定义消息队列或消息主体（topic）
+eg: 第一个queueName为自定义bean的ID，调用时需要保持一致；不设置默认为第二个queueName
+    第三个queueName为自定义的队列名称
+    @bean(name="queueName")
+    public Queue queueName(){
+        return new ActiveMQQueue("queueName"); //
+    }
+
+    // 发布订阅模式
+    @Bean(name="topicName")
+    public Topic topicName() {
+        return new ActiveMQTopic("topicName");
+    }
+
+
+activeMq的两种消息模式：
+1.队列模式（queue）
+2.发布订阅模式（topic）
+
+两种模式的区别在于：
+队列模式是一对一点对点的消费模式，如果一个消息有多个消费者，是每个消费者轮流进行消费，但是每个消息只会被消费一次
+
+发布订阅模式是发布者发布消息，订阅者订阅消息；所以存在一个发布对应多个订阅者，每个订阅者都可以订阅（消费）消息一次
+比如订单下单支付成功后：
+1.通知商家支付成功消息
+2.通知买家支付成功消息
+3.下发短信信息
+4.修改订单状态等信息
