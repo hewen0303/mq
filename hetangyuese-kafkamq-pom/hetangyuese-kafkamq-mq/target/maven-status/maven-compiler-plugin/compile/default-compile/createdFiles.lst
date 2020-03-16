@@ -1,0 +1,4 @@
+com\hetangyuese\SendMessageApplication.class
+com\hetangyuese\kafka\controller\SendMessageController.class
+com\hetangyuese\kafka\util\SendMessageUtil.class
+com\hetangyuese\kafka\util\SendMessageUtil$1.class

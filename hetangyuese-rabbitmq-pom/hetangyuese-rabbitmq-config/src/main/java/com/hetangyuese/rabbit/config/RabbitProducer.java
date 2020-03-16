@@ -33,6 +33,12 @@ public class RabbitProducer {
     }
 
 
+    /**
+     *  路由模式，交换机通过绑定关系且匹配正确的key才会分发给对应的队列
+     * @param exchange
+     * @param routeKey
+     * @param msg
+     */
     public void send(String exchange, String routeKey, String msg) {
         rabbitTemplate.convertAndSend(exchange, routeKey, msg);
     }
